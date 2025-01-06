@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "bung87.rails",
+    "dracula-theme.theme-dracula",
+    "ionutvmi.path-autocomplete",
+    "pkief.material-icon-theme",
+    "ms-vscode-remote.remote-wsl",
+    "marcoroth.stimulus-lsp",
+    "shardulm94.trailing-spaces",
+    "ms-azuretools.vscode-docker",
+  ],
+}

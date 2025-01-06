@@ -1,13 +1,13 @@
 <div class="group-header-website">
-  <div>
-    <h1>LeveCasa</h1>
+  <div class="action-logo">
+    <li><%= link_to "LeveCasa", "/" %></li>
   </div>
 
   <div>
    <%= render 'layouts/website/navigation' %>
   </div>
 
-  <div>
-    Login
+  <div class="action-login">
+    <%= render 'pages/auth/links/link_login' %>
   </div>
 </div>

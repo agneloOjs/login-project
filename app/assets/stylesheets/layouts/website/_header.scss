@@ -3,4 +3,23 @@
   align-items: center;
   align-content: center;
   grid-template-columns: auto 1fr auto;
+
+  & .action-logo {
+    & a {
+      color: var(--colorPri);
+      font-weight: 600;
+      font-size: 27px;
+    }
+  }
+
+  .action-login {
+    & a {
+      font-size: 16px;
+      font-weight: 500;
+      border: 1px solid var(--colorGray-800);
+      color: var(--colorGray-800);
+      padding: 10px 18px;
+      border-radius: 50px;
+    }
+  }
 }

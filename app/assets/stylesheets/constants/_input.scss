@@ -1,0 +1,60 @@
+.input-wrapper {
+  display: grid;
+  flex: 1 1 calc(100% - 16px);
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--colorGray-500);
+  text-align: left;
+}
+
+.error-message {
+  color: var(--colorRed-600);
+  font-size: 0.875rem;
+}
+
+input,
+select {
+  height: 50px;
+  border-radius: var(--borderRadiusInput);
+  background-color: transparent;
+  border: var(--boderInput);
+  color: var(--colorBlack);
+  padding: 10px 18px;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid var(--colorPri);
+}
+
+/**
+  / Quando o input está preenchido e válido /
+  input:valid {
+    border-color: var(--colorGray-950);
+  }
+
+  / Quando o input está inválido /
+  input:invalid {
+    border-color: var(--colorRed-600);
+  }
+*/
+
+/* Media queries for responsiveness */
+
+/* Telas pequenas - Smartphones */
+@media (max-width: 767px) {
+
+  select,
+  input {
+    height: 50px;
+  }
+
+}

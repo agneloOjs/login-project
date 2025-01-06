@@ -1,8 +1,8 @@
 <%= render(Navigation::WebsiteComponent.new) do |component| %>
   <% component.with_links([
-    { name: "Compar", href: root_path, icon: "", class_name: "link-dashboard" },
-    { name: "Discover", href: root_path, icon: "", class_name: "link-discover"},
-    { name: "Alugar", href: root_path, icon: "", class_name: "chat"},
-    { name: "Parceria", href: root_path, icon: "", class_name: "link-my-listing" },
+    { name: "Compar", href: root_path, icon: "", class_name: "link-compar" },
+    { name: "Alugar", href: root_path, icon: "", class_name: "link-alugar"},
+    { name: "Anunciar", href: root_path, icon: "", class_name: "link-anunciar"},
+    { name: "Parceria", href: root_path, icon: "", class_name: "link-parceria" },
   ]) %>
 <% end %>

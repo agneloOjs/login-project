@@ -1,0 +1,40 @@
+/* Layout base */
+.container-layout-website {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--colorWhite);
+  /* Grid */
+  display: grid;
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "main main main main main main main main main main main main";
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 1fr;
+
+  /* Header */
+  .header {
+    grid-area: header;
+    transition: var(--transition);
+    background-color: transparent;
+    padding: 5px 20px;
+    height: 80px;
+    /* Grid */
+    display: grid;
+    align-items: center;
+  }
+
+  /* Main content */
+  main {
+    grid-area: main;
+    width: 100%;
+    background-color: var(--colorWhite);
+    max-height: calc(100vh - 95px);
+    border-radius: 25px;
+    overflow-y: auto;
+    height: 100vh;
+    padding: 20px;
+    /* Grid */
+    display: grid;
+    align-content: flex-start;
+  }
+}

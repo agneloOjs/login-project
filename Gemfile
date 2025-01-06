@@ -13,6 +13,7 @@ gem "sass-rails", "~> 6.0"
 gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
+gem "view_component", "~> 3.21"
 
 gem "solid_cache"
 gem "solid_queue"

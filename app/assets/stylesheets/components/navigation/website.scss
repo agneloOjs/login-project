@@ -1,0 +1,39 @@
+.navigation-website {
+  display: grid;
+  align-items: center;
+  align-content: center;
+
+  & .navigation {
+    display: grid;
+    align-items: center;
+    align-content: center;
+
+    & ul {
+      display: grid;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      justify-items: center;
+
+      & li {
+        display: grid;
+        align-items: center;
+        align-content: center;
+        grid-template-columns: auto auto auto auto;
+        column-gap: 32px;
+
+        a {
+          color: var(--colorGray-700);
+          transition: var(--transition);
+          font-weight: 500;
+          font-size: 18px;
+
+          &:hover {
+            color: var(--colorGray-950);
+          }
+        }
+      }
+
+    }
+  }
+}

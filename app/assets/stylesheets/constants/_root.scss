@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'Gilroy';
+  src: uxrl(public-path('public/gilroy.Aa/Gilroy-Regular.ttf')) format('truetype');
+  font-style: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Gilroy', sans-serif;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}

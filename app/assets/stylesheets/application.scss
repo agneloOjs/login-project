@@ -3,9 +3,13 @@
 
 //layouts
 @import "layouts/website/export";
+@import "layouts/auth/export";
 
 // Constants
 @import "constants/export";
 
 // Auth
-@import "pages/auth/sessions/export";
+@import "pages/auth/export";
+
+// shared
+@import "shared/export";

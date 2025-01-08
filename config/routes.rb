@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :pages, path: "" do
     namespace :auth do
       get "sessions", to: "sessions#index", as: :sessions
+      get "registrations", to: "registrations#index", as: :registrations
     end
   end
 end

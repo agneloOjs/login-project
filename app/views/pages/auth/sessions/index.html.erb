@@ -1,16 +1,23 @@
 <div class="container-sessions">
   <p>Already have an account? Connect.</p>
 
-  <div class="group-navigation">
-  </div>
+
 
   <div class="group-action-from">
     <div>
+      <div class="group-navigation-link">
+        <div class="log-in">
+         <%= render 'pages/auth/links/link_logIn' %>
+        </div>
+        <div>
+         <%= render 'pages/auth/links/link_signUp' %>
+        </div>
+      </div>
       <%= render 'pages/auth/sessions/form' %>
     </div>
+
     <div>
       Foto
     </div>
   </div>
-
 </div>

@@ -4,12 +4,12 @@
 
 
   <div class="group-action-from">
-    <div>
+    <div class="group-content">
       <div class="group-navigation-link">
         <div class="log-in">
          <%= render 'pages/auth/links/link_logIn' %>
         </div>
-        <div>
+        <div class="sign-up">
          <%= render 'pages/auth/links/link_signUp' %>
         </div>
       </div>
@@ -17,7 +17,7 @@
     </div>
 
     <div>
-      Foto
+      <%= image_tag "logIn.png", alt: "Log In", class: "example-class" %>
     </div>
   </div>
 </div>

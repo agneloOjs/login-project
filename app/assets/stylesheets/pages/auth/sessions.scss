@@ -7,13 +7,21 @@
   grid-template-columns: 1fr;
   row-gap: 23px;
 
+  & .group-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 23px;
+  }
+
+
+
   & .group-navigation-link {
     /* Grid */
     display: grid;
     align-items: center;
     align-content: center;
     grid-template-columns: 1fr 1fr;
-    column-gap: 27px;
+    column-gap: 23px;
 
     & a {
       text-align: center;
@@ -29,6 +37,20 @@
       & a {
         background-color: var(--colorGray-950);
         color: var(--colorGray-200);
+      }
+    }
+
+    & .sign-up {
+      display: grid;
+      color: var(--colorGray-950);
+
+      & a {
+        background: var(--colorWhite);
+        transition: var(--transition);
+
+        &:hover {
+          background: var(--colorGray-200);
+        }
       }
     }
 

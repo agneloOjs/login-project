@@ -1,6 +1,8 @@
 <div class="group-header-website">
   <div class="action-logo">
-    <li><%= link_to "LeveCasa", "/" %></li>
+    <%= link_to root_path do %>
+      <%= render "shared/logoPri" %> 
+    <% end %>
   </div>
 
   <div>

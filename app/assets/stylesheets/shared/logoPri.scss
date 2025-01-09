@@ -1,0 +1,15 @@
+.logo-pri {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: auto auto;
+  justify-content: flex-start;
+  justify-items: flex-start;
+  column-gap: 14px;
+
+  & p {
+    color: var(--colorPri);
+    font-size: 23px;
+    font-weight: 600;
+  }
+}

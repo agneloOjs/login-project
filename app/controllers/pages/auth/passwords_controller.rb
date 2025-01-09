@@ -1,8 +1,8 @@
 module Pages
   module Auth
-    class SessionsController < ApplicationController
+    class PasswordsController < ApplicationController
       layout "auth/layout"
-      def index
+      def reset
       end
     end
   end

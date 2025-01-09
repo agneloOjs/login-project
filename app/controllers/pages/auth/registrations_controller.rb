@@ -1,6 +1,6 @@
 module Pages
   module Auth
-    class SessionsController < ApplicationController
+    class RegistrationsController < ApplicationController
       layout "auth/layout"
       def index
       end

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     namespace :auth do
       get "sessions", to: "sessions#index", as: :sessions
       get "registrations", to: "registrations#index", as: :registrations
+      get "reset-password", to: "passwords#reset", as: :reset_password
     end
   end
 end

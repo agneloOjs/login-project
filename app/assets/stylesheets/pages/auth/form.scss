@@ -20,6 +20,13 @@
     grid-template-columns: 1fr;
     row-gap: 14px;
     order: 0;
+
+    & a {
+      text-align: right;
+      color: var(--colorGray-950);
+      font-weight: 500;
+      font-size: 15px;
+    }
   }
 
   & .groud-input {

@@ -1,21 +1,22 @@
 <div class="group-form-auth">
+  <!-- Form -->
   <%= form_with url: pages_auth_sessions_path, method: :post, local: true, class: "login-form" do |form| %>
     <div class="input-wrapper">
       <%= form.email_field :name, placeholder: "Fullname", class: "form-control" %>
     </div>
     
     <div class="input-wrapper">
-      <%= form.email_field :email, placeholder: "EmailAddress", class: "form-control" %>
+      <%= form.email_field :email, placeholder: "Email Address", class: "form-control" %>
     </div>
 
     <div class="input-wrapper">
-      <%= form.password_field :password, placeholder: "Enter your password", class: "form-control" %>
+      <%= form.password_field :password, placeholder: "Password", class: "form-control" %>
     </div>
 
     <div class="input-wrapper">
       <%= form.email_field :phone, placeholder: "Phone Nunber", class: "form-control" %>
     </div>
-
+    <!-- Button Submit -->
     <div class="form-actions">
       <%= form.submit "Login", class: "btn btn-primary" %>
     </div>

@@ -4,12 +4,6 @@
     <div class="input-wrapper">
       <%= form.email_field :email, placeholder: "Email Address", class: "form-control" %>
     </div>
-
-    <div class="input-wrapper">
-      <%= form.password_field :password, placeholder: "Password", class: "form-control" %>
-      <%= render "pages/auth/links/link_reset_password" %>
-    </div>
-
     <!-- Button Submit -->
     <div class="form-actions">
       <%= form.submit "Login", class: "btn btn-primary" %>

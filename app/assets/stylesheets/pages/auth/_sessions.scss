@@ -13,7 +13,20 @@
     row-gap: 23px;
   }
 
+  & .form-actions {
+    display: grid;
 
+    & .btn {
+      width: 100%;
+      cursor: pointer;
+      background-color: var(--colorGray-950);
+      color: var(--colorWhite);
+
+      &:hover {
+        background-color: var(--colorGray-900);
+      }
+    }
+  }
 
   & .group-navigation-link {
     /* Grid */
@@ -22,6 +35,8 @@
     align-content: center;
     grid-template-columns: 1fr 1fr;
     column-gap: 23px;
+    max-width: 400px;
+    margin: 0;
 
     & a {
       text-align: center;
@@ -53,7 +68,6 @@
         }
       }
     }
-
   }
 
   & .group-action-from {

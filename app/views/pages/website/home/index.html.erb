@@ -1,1 +1,8 @@
 <h2>Pages/website</h2>
+<br>
+<% if user_signed_in? %>
+  <%= button_to do %>
+  <%= render "pages/auth/links/link_destroy" %>
+  <% end %>
+  <span>Olá, <%= current_user.email %></span>
+<% end %>

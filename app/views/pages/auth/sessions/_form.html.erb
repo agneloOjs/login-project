@@ -1,6 +1,8 @@
 <div class="group-form-auth">
   <!-- Form -->
-  <%= form_with url: pages_auth_sessions_path, method: :post, local: true, class: "login-form" do |form| %>
+ <%#= form_with(url: pages_auth_sessions_path, html: { method: :post }) do |form| %>
+ <%= form_with(scope: :session, url: pages_auth_sessions_path) do |form| %>
+   
     <div class="input-wrapper">
       <%= form.email_field :email, placeholder: "Email Address", class: "form-control" %>
     </div>
@@ -12,7 +14,7 @@
 
     <!-- Button Submit -->
     <div class="form-actions">
-      <%= form.submit "Login", class: "btn btn-primary" %>
+      <%= form.submit "Log-in", class: "btn" %>
     </div>
   <% end %>
 </div>

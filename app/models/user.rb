@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Inclui suporte a autenticação com bcrypt
   has_secure_password
+  before_validation :generate_unique_code, on: :create
 
   # Validações
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -12,11 +12,19 @@ class User < ApplicationRecord
   validates :deleted, inclusion: { in: [ true, false ] }
   validates :active, inclusion: { in: [ true, false ] }
 
-  # Métodos auxiliares
+  # Métodos Privados
   private
 
   # Necessário para evitar validação de senha ao atualizar outros atributos
   def password_required?
     new_record? || password.present?
   end
+
+  def generate_unique_code
+    loop do
+      self.code = rand(100000..999999)
+       Rails.logger.info "Generated code: #{self.code}"
+       break unless User.exists?(code: code)
+     end
+   end
 end

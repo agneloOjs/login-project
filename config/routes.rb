@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   namespace :pages, path: "" do
     namespace :auth do
-      get "sessions", to: "sessions#index", as: :sessions
-      get "registrations", to: "registrations#index", as: :registrations
+      resources :sessions, only: [ :index, :new, :create, :destroy ]
+      resources :registrations, only: [ :index, :new, :create ]
       get "reset-password", to: "passwords#reset", as: :reset_password
     end
   end

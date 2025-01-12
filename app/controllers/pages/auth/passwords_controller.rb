@@ -1,7 +1,6 @@
 module Pages
   module Auth
-    class PasswordsController < ApplicationController
-      layout "auth/layout"
+    class PasswordsController < Pages::Auth::BaseController
       def reset
       end
     end

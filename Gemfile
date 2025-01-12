@@ -14,6 +14,9 @@ gem "bootsnap", require: false
 gem "kamal", require: false
 gem "thruster", require: false
 gem "view_component", "~> 3.21"
+gem "jwt", "~> 2.9", ">= 2.9.3"
+gem 'bcrypt', '~> 3.1', '>= 3.1.20'
+
 
 gem "solid_cache"
 gem "solid_queue"

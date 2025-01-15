@@ -1,82 +1,59 @@
-.container-sessions {
-  height: 100%;
-  /* Grid */
+.group-sessions {
   display: grid;
-  align-items: center;
-  align-content: center;
-  grid-template-columns: 1fr;
-  row-gap: 23px;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
 
+  /* group form actions */
   & .group-content {
     display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 23px;
-  }
-
-  & .form-actions {
-    display: grid;
-
-    & .btn {
-      width: 100%;
-      cursor: pointer;
-      background-color: var(--colorGray-950);
-      color: var(--colorWhite);
-
-      &:hover {
-        background-color: var(--colorGray-900);
-      }
-    }
-  }
-
-  & .group-navigation-link {
-    /* Grid */
-    display: grid;
-    align-items: center;
-    align-content: center;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 23px;
-    max-width: 400px;
-    margin: 0;
-
-    & a {
-      text-align: center;
-      border: var(--borderButton);
-      border-radius: var(--borderRadiusButton);
-      border: var(--boderButton);
-      padding: 14px 20px;
-    }
-
-    & .log-in {
-      display: grid;
-
-      & a {
-        background-color: var(--colorGray-950);
-        color: var(--colorGray-200);
-      }
-    }
-
-    & .sign-up {
-      display: grid;
-      color: var(--colorGray-950);
-
-      & a {
-        background: var(--colorWhite);
-        transition: var(--transition);
-
-        &:hover {
-          background: var(--colorGray-200);
-        }
-      }
-    }
-  }
-
-  & .group-action-from {
     height: max-content;
-    /* Grid */
+
+    order: 0;
+
+    /* content actions */
+    & .content-actions {
+      display: grid;
+      height: max-content;
+    }
+
+    /* content form */
+    & .content-form {
+      display: grid;
+      height: max-content;
+    }
+  }
+
+  /* group image */
+  & .group-image {
     display: grid;
-    align-items: center;
-    align-content: center;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 30px;
+    height: max-content;
+
+    order: 1;
+  }
+}
+
+/* media query */
+@media (max-width: 1024px) {
+  .group-sessions {
+
+    /* group form actions */
+    & .group-content {
+      order: 1;
+
+      /* content actions */
+      & .content-actions {
+        display: grid;
+      }
+
+      /* content form */
+      & .content-form {
+        display: grid;
+      }
+    }
+
+    /* group image */
+    & .group-image {
+      order: 0;
+    }
   }
 }

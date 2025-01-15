@@ -1,13 +1,15 @@
-<div class="container-sessions">
-  <div class="group-action-from">
-    <div class="group-content"> 
-      <p>Already have an account? Connect.</p>
-      <!-- Form -->
+<div class="group-passwords">
+  <!-- group form actions -->
+  <div class="group-content">
+    <p>Forgot your password? Reset here.</p>
+    <!-- content form -->
+    <div class="content-form">
       <%= render 'pages/auth/passwords/form_reset' %>
     </div>
-    <!-- Image -->
-    <div>
-      <%= image_tag "logIn.png", alt: "Log In", class: "example-class" %>
-    </div>
+  </div>
+
+  <!-- group image -->
+  <div class="group-image">
+    <%#= image_tag "logIn.png", alt: "Log-In", class: "example-class" %>
   </div>
 </div>

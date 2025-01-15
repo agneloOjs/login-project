@@ -47,3 +47,31 @@
     height: max-content;
   }
 }
+
+@media (max-width: 1024px) {
+  .container-layout-auth {
+    grid-template-areas:
+      "header header header header header header header header"
+      "main main main main main main main main";
+    grid-template-columns: repeat(8, 1fr);
+
+    & .header,
+    & .main {
+      padding: 5px 30px;
+    }
+  }
+}
+
+@media (max-width: 764px) {
+  .container-layout-auth {
+    grid-template-areas:
+      "header header header header"
+      "main main main main";
+    grid-template-columns: repeat(4, 1fr);
+
+    & .header,
+    & .main {
+      padding: 5px 15px;
+    }
+  }
+}

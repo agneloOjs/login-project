@@ -3,11 +3,18 @@
   <div class="group-content">
     <!-- content actions -->
     <div class="content-actions">
-      <h1>Actions</h1>
+      <!-- log-in -->
+      <div class="log-in">
+        <%= render 'pages/auth/links/link_logIn' %>
+      </div>
+      <!-- sign-up -->
+      <div class="sign-up">
+        <%= render 'pages/auth/links/link_signUp' %>
+      </div>
     </div>
     <!-- content form -->
     <div class="content-form">
-     <h1>form</h1>
+      <%= render 'pages/auth/sessions/form' %>
     </div>
   </div>
 

@@ -6,14 +6,53 @@
   /* group form actions */
   & .group-content {
     display: grid;
+    max-width: 450px;
     height: max-content;
+    row-gap: 23px;
 
     order: 0;
 
     /* content actions */
     & .content-actions {
       display: grid;
+      grid-template-columns: 1fr 1fr;
       height: max-content;
+      column-gap: 23px;
+
+      /* log-in  */
+      & .log-in {
+        display: grid;
+        height: max-content;
+        align-content: center;
+        align-items: center;
+
+        a {
+          border-radius: 50px;
+          text-align: center;
+          padding: 14px 8px;
+          border: 1px solid var(--colorGray-950);
+          background-color: var(--colorGray-950);
+          color: var(--colorWhite);
+
+        }
+      }
+    }
+
+    /* sign-up */
+    & .sign-up {
+      display: grid;
+      height: max-content;
+      align-content: center;
+      align-items: center;
+
+      a {
+        border-radius: 50px;
+        text-align: center;
+        padding: 14px 8px;
+        border: 1px solid var(--colorGray-300);
+        background-color: var(--colorWhite);
+        color: var(--colorGray-950);
+      }
     }
 
     /* content form */

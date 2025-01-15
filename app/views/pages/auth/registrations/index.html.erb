@@ -1,24 +1,25 @@
-<div class="container-sessions">
-  <div class="group-action-from">
-    <div class="group-content">
-      <p>Não tem uma conta? Cadastre-se agora.</p>
-      <!-- Group Links Navigation -->
-      <div class="group-navigation-link">
-         <!-- Log-in -->
-        <div class="log-in">
-         <%= render 'pages/auth/links/link_logIn' %>
-        </div>
-        <!-- Sing-up -->
-        <div class="sign-up">
-         <%= render 'pages/auth/links/link_signUp' %>
-        </div>
+<div class="group-sessions">
+  <!-- group form actions -->
+  <div class="group-content">
+    <!-- content actions -->
+    <div class="content-actions">
+      <!-- log-in -->
+      <div class="log-in">
+        <%= render 'pages/auth/links/link_logIn' %>
       </div>
-      <!-- Form -->
+      <!-- sign-up -->
+      <div class="sign-up">
+        <%= render 'pages/auth/links/link_signUp' %>
+      </div>
+    </div>
+    <!-- content form -->
+    <div class="content-form">
       <%= render 'pages/auth/registrations/form' %>
     </div>
-    <!-- Form -->
-    <div>
-      <%= image_tag "logIn.png", alt: "Log In", class: "example-class" %>
-    </div>
+  </div>
+
+  <!-- group image -->
+  <div class="group-image">
+    <%= image_tag "logIn.png", alt: "Log-In", class: "example-class" %>
   </div>
 </div>

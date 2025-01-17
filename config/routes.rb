@@ -13,5 +13,11 @@ Rails.application.routes.draw do
       resources :registrations, only: [ :index, :new, :create ]
       get "reset-password", to: "passwords#reset", as: :reset_password
     end
+
+    namespace :imob do
+      namespace :admin do
+        get "dashboard", to: "dashboard#index", as: :dashboard
+      end
+    end
   end
 end

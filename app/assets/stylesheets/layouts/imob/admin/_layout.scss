@@ -9,6 +9,8 @@
     "header header header header header header header header header header header header"
     "main main main main main main main main main main main main";
   grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 1fr;
+  background-color: aquamarine;
 
   h2 {
     color: var(--colorPri);
@@ -38,7 +40,6 @@
     grid-area: main;
     width: 100%;
     background-color: var(--colorGray-200);
-    max-height: calc(100vh - 95px);
     overflow-y: auto;
     /* Grid */
     display: grid;

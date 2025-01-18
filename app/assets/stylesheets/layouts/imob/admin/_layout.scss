@@ -1,0 +1,49 @@
+/* Layout auth */
+.container-layout-imob-admin {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--colorWhite);
+  /* Grid */
+  display: grid;
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "main main main main main main main main main main main main";
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 1fr;
+
+  h1 {
+    color: var(--colorPri);
+    font-size: 23px;
+    font-weight: 600;
+  }
+
+  & header,
+  & main {
+    padding: 5px 60px;
+  }
+
+  /* Header */
+  & header {
+    grid-area: header;
+    transition: var(--transition);
+    background-color: var(--colorWhite);
+    height: 70px;
+    /* Grid */
+    display: grid;
+    align-items: center;
+    align-content: center;
+    border: 1px solid var(--colorGray-200);
+  }
+
+  /* Main content */
+  & main {
+    grid-area: main;
+    background-color: var(--colorWhite);
+    padding-top: 30px;
+    overflow-y: auto;
+    width: 100%;
+    /* Grid */
+    display: grid;
+
+  }
+}

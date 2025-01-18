@@ -6,7 +6,12 @@
   grid-template-columns: auto 1fr auto;
   column-gap: 23px;
 
-  // => TODO Logo
+  // Logo
+  & .group-logo {
+    display: grid;
+    align-items: center;
+    align-content: center;
+  }
 
   // navigation
   & .group-navigation {
@@ -46,5 +51,10 @@
     }
   }
 
-  // => TODO Actions
+  // Actions
+  & .group-actions {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 18px;
+  }
 }

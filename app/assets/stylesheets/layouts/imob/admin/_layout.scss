@@ -27,7 +27,7 @@
     grid-area: header;
     transition: var(--transition);
     background-color: var(--colorWhite);
-    height: 60px;
+    height: 70px;
     /* Grid */
     display: grid;
     align-items: center;
@@ -38,9 +38,10 @@
   /* Main content */
   & main {
     grid-area: main;
-    width: 100%;
     background-color: var(--colorWhite);
+    padding-top: 30px;
     overflow-y: auto;
+    width: 100%;
     /* Grid */
     display: grid;
 

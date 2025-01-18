@@ -10,9 +10,8 @@
     "main main main main main main main main main main main main";
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto 1fr;
-  background-color: aquamarine;
 
-  h2 {
+  h1 {
     color: var(--colorPri);
     font-size: 23px;
     font-weight: 600;
@@ -27,19 +26,20 @@
   & header {
     grid-area: header;
     transition: var(--transition);
-    background-color: var(--colorPuple-200);
+    background-color: var(--colorWhite);
     height: 60px;
     /* Grid */
     display: grid;
     align-items: center;
     align-content: center;
+    border: 1px solid var(--colorGray-200);
   }
 
   /* Main content */
   & main {
     grid-area: main;
     width: 100%;
-    background-color: var(--colorGray-200);
+    background-color: var(--colorWhite);
     overflow-y: auto;
     /* Grid */
     display: grid;

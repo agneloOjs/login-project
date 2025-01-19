@@ -1,0 +1,22 @@
+<div class="navbar" data-controller="menu">
+  <!-- Botão para abrir o menu -->
+  <button class="menu-toggle" data-action="click->menu#toggle">
+    <%= render 'shared/icons/settings' %>
+  </button>
+
+  <nav class="menu" data-menu-target="menu">
+    <ul>
+    <button class="menu-close" data-action="click->menu#toggle">✖</button>
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'About', root_path %></li>
+    <li><%= link_to 'Contact', root_path %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to 'Profile', root_path %></li>
+      <li><%= link_to 'Logout', root_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'Login', root_path %></li>
+      <li><%= link_to 'Sign Up', root_path %></li>
+    <% end %>
+  </ul>
+  </nav>
+</div >

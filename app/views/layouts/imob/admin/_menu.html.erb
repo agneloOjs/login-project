@@ -1,0 +1,22 @@
+<div class="conatiner-menu">
+  <div class="navbar" data-controller="menu">
+  <!-- Botão para abrir o menu -->
+  <button class="menu-toggle" data-action="click->menu#toggle">
+    <%= render 'shared/icons/menu' %>
+    <span>Menu</span>
+  </button>
+
+  <div class="menu" data-menu-target="menu">
+    <div class="group-menu">
+      <button class="menu-close" data-action="click->menu#toggle">
+        <%= render 'shared/icons/cross' %>
+      </button>
+      <%= render(Navigation::NavBarComponent.new) do |component| %>
+        <% component.with_links([
+          { name: "Users", href: root_path, icon: "", class_name: "link-compar" },
+        ]) %>
+      <% end %>
+  </div>
+  </div>
+</div >
+</div>

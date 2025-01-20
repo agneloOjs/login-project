@@ -7,6 +7,13 @@
   grid-template-columns: auto 1fr auto;
   column-gap: 23px;
 
+  // Navigation
+  & .container-navigation-imob {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 23px;
+  }
+
   // group-actions
   & .group-actions {
     display: grid;
@@ -15,21 +22,4 @@
     align-content: center;
     column-gap: 14px;
   }
-}
-
-/* Estilos para a navegação */
-.container-navigation-imob {
-  padding: 10px;
-}
-
-.container-navigation-imob ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-}
-
-.container-navigation-imob ul li {
-  position: relative;
 }

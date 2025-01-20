@@ -4,19 +4,16 @@
     <%= render 'shared/icons/settings' %>
   </button>
 
-  <nav class="menu" data-menu-target="menu">
-    <ul>
-    <button class="menu-close" data-action="click->menu#toggle">✖</button>
-    <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'About', root_path %></li>
-    <li><%= link_to 'Contact', root_path %></li>
-    <% if user_signed_in? %>
-      <li><%= link_to 'Profile', root_path %></li>
-      <li><%= link_to 'Logout', root_path, method: :delete %></li>
-    <% else %>
-      <li><%= link_to 'Login', root_path %></li>
-      <li><%= link_to 'Sign Up', root_path %></li>
-    <% end %>
-  </ul>
-  </nav>
+  <div class="menu" data-menu-target="menu">
+    <div class="group-menu">
+      <button class="menu-close" data-action="click->menu#toggle">
+        <%= render 'shared/icons/cross' %>
+      </button>
+      <%= render(Navigation::NavBarComponent.new) do |component| %>
+        <% component.with_links([
+          { name: "Users", href: root_path, icon: "", class_name: "link-compar" },
+        ]) %>
+      <% end %>
+  </div>
+  </div>
 </div >

@@ -1,7 +1,18 @@
-<nav class="container-navigation-imob">
+<nav class="container-navigation-imob" data-controller="dropdown">
   <ul>
+    <li data-action="mouseenter->dropdown#show mouseleave->dropdown#hide click->dropdown#toggle">
+      <span class="dropdown-toggle">Imóveis</span>
+      <ul class="dropdown-menu hidden" data-dropdown-target="menuDropdown">
+        <%= render(Navigation::NavBarComponent.new) do |component| %>
+        <% component.with_links([
+          { name: "Portal", href: root_path, icon: "", class_name: "link-compar" },
+          { name: "My Properties", href: root_path, icon: "", class_name: "link-compar" },
+          { name: "Condominiums", href: root_path, icon: "", class_name: "link-compar" },
+        ]) %>
+      <% end %>
+      </ul>
+    </li>
     <li><%= link_to 'Dashboard', pages_imob_admin_dashboard_path %></li>
-    <li><%= link_to 'Imóveis', "#" %></li>
     <li><%= link_to 'Contatos', "#" %></li>
     <li><%= link_to 'Negócios', "#" %></li>
     <li><%= link_to 'Atividades', "#" %></li>

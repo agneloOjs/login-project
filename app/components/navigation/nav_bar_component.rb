@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Navigation
-  class WebsiteComponent < ViewComponent::Base
+  class NavBarComponent < ViewComponent::Base
     renders_many :links, "LinkComponent" # Permite adicionar vários links
 
     class LinkComponent < ViewComponent::Base

@@ -1,0 +1,46 @@
+/* Menu suspenso */
+.dropdown-menu {
+  position: absolute;
+  top: 0;
+  /* Ajuste a posição */
+  left: 0;
+  background-color: var(--colorWhite);
+  border-radius: 10px;
+  width: max-content;
+  padding: 10px;
+  display: none;
+  /* Oculto por padrão */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  color: #333;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Mostrar menu suspenso */
+.dropdown-menu.visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Esconder o menu */
+.hidden {
+  display: none;
+}

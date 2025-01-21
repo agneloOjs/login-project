@@ -1,4 +1,4 @@
-.navigation-website {
+.navigation-container {
   display: grid;
   align-items: center;
   align-content: center;
@@ -12,28 +12,29 @@
       display: grid;
       align-items: center;
       align-content: center;
-      justify-content: center;
-      justify-items: center;
 
       & li {
         display: grid;
         align-items: center;
         align-content: center;
-        grid-template-columns: auto auto auto auto;
-        column-gap: 32px;
+        grid-template-columns: 1fr;
+        row-gap: 8px;
 
         a {
-          color: var(--colorGray-700);
+          color: var(--colorGray-800);
           transition: var(--transition);
+          border: 1px solid var(--colorGray-300);
+          border-radius: 50px;
+          padding: 5px 14px;
           font-weight: 500;
           font-size: 18px;
 
           &:hover {
-            color: var(--colorGray-950);
+            border: 1px solid var(--colorGray-300);
+            background-color: var(--colorGray-200);
           }
         }
       }
-
     }
   }
 }

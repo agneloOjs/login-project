@@ -1,9 +1,4 @@
 <div class="navbar" data-controller="menu">
-  <!-- Botão para abrir o menu -->
-  <button class="menu-toggle" data-action="click->menu#toggle">
-    <%= render 'shared/icons/settings' %>
-  </button>
-
   <div class="menu" data-menu-target="menu">
     <div class="group-menu">
       <button class="menu-close" data-action="click->menu#toggle">
@@ -16,4 +11,8 @@
       <% end %>
   </div>
   </div>
+  <!-- Botão para abrir o menu -->
+  <button class="menu-toggle" data-action="click->menu#toggle">
+    <%= render 'shared/icons/settings' %>
+  </button>
 </div >

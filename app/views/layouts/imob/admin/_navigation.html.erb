@@ -5,11 +5,11 @@
     <!-- Main button -->
     <button class="dropdown-toggle" data-action="click->dropdown#toggle">Imóveis</button>
     <ul class="dropdown-menu hidden" data-dropdown-target="menu">
+        <p>Imóveis</p>
         <%= render(Navigation::NavBarComponent.new) do |component| %>
           <% component.with_links([
-            { name: "Portal", href: root_path, icon: "", class_name: "link-compar" },
-            { name: "Campo 2", href: root_path, icon: "", class_name: "link-compar" },
-            { name: "Campo 3", href: root_path, icon: "", class_name: "link-compar" },
+            { name: "Portal", href: "#", icon: "", class_name: "link-compar" },
+            { name: "Properties", href: "#", icon: "", class_name: "link-compar" },
           ]) %>
         <% end %>
     </ul>
@@ -20,11 +20,11 @@
   <!-- Main button -->
     <button class="dropdown-toggle" data-action="click->dropdown#toggle">Contatos</button>
     <ul class="dropdown-menu hidden" data-dropdown-target="menu">
+        <p>Contatos</p>
         <%= render(Navigation::NavBarComponent.new) do |component| %>
           <% component.with_links([
-            { name: "Portal", href: root_path, icon: "", class_name: "link-compar" },
-            { name: "Campo 2", href: root_path, icon: "", class_name: "link-compar" },
-            { name: "Campo 3", href: root_path, icon: "", class_name: "link-compar" },
+            { name: "Leads", href: "#", icon: "", class_name: "link-compar" },
+            { name: "Clients", href: "#", icon: "", class_name: "link-compar" },
           ]) %>
         <% end %>
     </ul>

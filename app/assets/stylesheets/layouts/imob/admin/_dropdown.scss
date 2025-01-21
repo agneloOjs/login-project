@@ -16,14 +16,10 @@
   font-size: 18px;
 }
 
-.dropdown-toggle:hover {
-  background-color: #555;
-}
-
 /* Menu suspenso */
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: -8px;
   /* Posiciona abaixo do botão */
   left: 0;
   transform: translateY(-20px);
@@ -32,31 +28,23 @@
   /* Invisível por padrão */
   visibility: hidden;
   /* Não pode ser clicado */
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--colorWhite);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   list-style: none;
-  padding: 10px 0;
-  min-width: 150px;
+  padding: 10px;
+  width: max-content;
   z-index: 1000;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  display: grid;
+  row-gap: 12px;
+
+  & p {
+    font-size: 18px;
+    font-weight: 600;
+  }
 }
 
-.dropdown-menu li {
-  padding: 0;
-}
-
-.dropdown-menu li a {
-  color: #333;
-  text-decoration: none;
-  padding: 10px 15px;
-  display: block;
-}
-
-.dropdown-menu li a:hover {
-  background-color: #f0f0f0;
-}
 
 /* Estado visível do menu */
 .dropdown-container:hover .dropdown-menu,

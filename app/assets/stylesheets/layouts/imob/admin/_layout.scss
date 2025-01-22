@@ -11,12 +11,6 @@
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto 1fr;
 
-  h1 {
-    color: var(--colorPri);
-    font-size: 23px;
-    font-weight: 600;
-  }
-
   & header,
   & main {
     padding: 5px 60px;
@@ -44,6 +38,5 @@
     width: 100%;
     /* Grid */
     display: grid;
-
   }
 }

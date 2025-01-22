@@ -1,0 +1,21 @@
+<h1>Lista de Usuários</h1>
+<div class="table-container">
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Email</th>
+        <th>Criado em</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+        <td><%= user.code %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at %></td>     
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -10,7 +10,7 @@
       <div class="group-menu">
         <%= render(Navigation::NavBarComponent.new) do |component| %>
           <% component.with_links([
-            { name: "Users", href: root_path, icon: "", class_name: "link-compar" },
+            { name: "Users", href: pages_imob_admin_users_path, icon: "", class_name: "link-compar" },
           ]) %>
         <% end %>
 

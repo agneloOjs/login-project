@@ -1,0 +1,41 @@
+.container-popup {
+  display: grid;
+  height: max-content;
+  background-color: var(--colorWhite);
+  padding: 10px;
+  border-radius: 50px;
+  position: relative;
+  z-index: 1001;
+}
+
+.menu {
+  display: none;
+  /* Oculta por padrão */
+  list-style: none;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 1002;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+
+}
+
+.menu .group-menu {
+  background-color: var(--colorWhite);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  max-width: 400px;
+  max-height: 90%;
+  text-align: center;
+}
+
+.menu.visible {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}

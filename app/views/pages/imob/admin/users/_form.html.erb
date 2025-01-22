@@ -1,0 +1,15 @@
+<div class="container-popup" data-controller="menu">
+  <!-- Botão para abrir o menu -->
+  <button class="button-add" data-action="click->menu#toggle">
+    <%= render 'shared/icons/plus' %>
+  </button>
+
+  <div class="menu" data-menu-target="menu">
+    <div class="group-menu">
+      Conteúdo do Popup
+      <button class="bnt-close" data-action="click->menu#toggle">
+        <%= render 'shared/icons/cross' %>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.button-add {
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  background-color: var(--colorPri);
+  border-radius: 100px;
+  padding: 14px;
+  right: 25px;
+  bottom: 30px;
+
+  i {
+    color: var(--colorWhite);
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,24 @@
+.container-user-form {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  & form {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 23px;
+
+    & .group-input {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 23px;
+    }
+
+    // gruop button
+    & .form-actions {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+}

@@ -2,9 +2,9 @@
   display: grid;
   height: max-content;
   background-color: var(--colorWhite);
-  padding: 10px;
   border-radius: 50px;
   position: relative;
+  padding: 10px;
   z-index: 1001;
 
   .menu {
@@ -23,19 +23,18 @@
   }
 
   .menu .group-menu {
-    background-color: var(--colorWhite);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
-    max-width: 400px;
-    max-height: 90%;
-    text-align: center;
+    padding: 15px;
+    background-color: var(--colorWhite);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: max-content;
+    border-radius: 8px;
   }
 
   .menu.visible {
     display: grid;
     justify-content: center;
     align-content: center;
+    max-height: 100%;
   }
 }

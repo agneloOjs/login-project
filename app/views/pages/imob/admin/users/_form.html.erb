@@ -7,9 +7,33 @@
   <div class="menu" data-menu-target="menu">
     <div class="group-menu">
       Conteúdo do Popup
-      <button class="bnt-close" data-action="click->menu#toggle">
-        <%= render 'shared/icons/cross' %>
-      </button>
+      <%= form_with(scope: :registrations ,url: pages_auth_registrations_path, html: { method: :post }) do |form| %>
+        <!--
+          <div class="input-wrapper">
+            <%= form.text_field :name, placeholder: "Fullname", class: "form-control" %>
+          </div>
+        -->
+
+        <div class="input-wrapper">
+          <%= form.email_field :email, placeholder: "Email Address", required: true %>
+        </div>
+
+        <div class="input-wrapper">
+          <%= form.password_field :password, placeholder: "Password", required: true %>
+        </div>
+
+        <!--
+        <div class="input-wrapper">
+          <%= form.telephone_field :phone, placeholder: "Phone Number", class: "form-control" %>
+        </div>
+       -->
+
+        <!-- Button Submit -->
+        <div class="form-actions">
+          <%= form.submit "Cancelar", class: "bnt-cancel", data: { action: "click->menu#toggle" }, type: "button" %>
+          <%= form.submit "Salvar", class: "bnt-save" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

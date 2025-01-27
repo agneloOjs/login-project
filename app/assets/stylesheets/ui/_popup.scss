@@ -1,11 +1,6 @@
 .container-popup {
-  display: grid;
-  height: max-content;
-  background-color: var(--colorWhite);
-  border-radius: 50px;
   position: relative;
-  padding: 10px;
-  z-index: 1001;
+  display: inline-block;
 
   .menu {
     display: none;

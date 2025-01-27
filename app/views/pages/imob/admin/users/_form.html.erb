@@ -8,7 +8,7 @@
     <div class="group-menu">
       <div class="container-user-form">
         Conteúdo do Popup
-        <%= form_with(scope: :registrations ,url: pages_auth_registrations_path, html: { method: :post }) do |form| %>
+        <%= form_with(scope: :users ,url: pages_imob_admin_users_path, html: { method: :post }) do |form| %>
           <div class="group-input">
             <!--
               <div class="input-wrapper">
@@ -19,11 +19,7 @@
             <div class="input-wrapper">
               <%= form.email_field :email, placeholder: "Email Address", required: true %>
             </div>
-
-            <div class="input-wrapper">
-              <%= form.password_field :password, placeholder: "Password", required: true %>
-            </div>
-
+         
             <!--
             <div class="input-wrapper">
               <%= form.telephone_field :phone, placeholder: "Phone Number", class: "form-control" %>

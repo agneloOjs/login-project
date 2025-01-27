@@ -1,0 +1,23 @@
+.bnt-filter {
+  display: grid;
+  cursor: pointer;
+  padding: 5px 14px;
+  border-radius: 50px;
+  align-items: center;
+  align-content: center;
+  border: 1px solid var(--colorGray-300);
+  grid-template-columns: auto auto;
+  background-color: transparent;
+  transition: var(--transition);
+  column-gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+
+  i {
+    font-size: 1.1rem;
+  }
+
+  &:hover {
+    background-color: var(--colorGray-100);
+  }
+}

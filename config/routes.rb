@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       namespace :admin do
         get "dashboard", to: "dashboard#index", as: :dashboard
         # get "usuarios", to: "users#index", as: :users
-        resources :users, only: [ :index ]
+        resources :users, only: [ :index, :new, :create ]
       end
     end
   end

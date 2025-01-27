@@ -1,0 +1,21 @@
+.container-overview-imob {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 20px;
+
+  h1 {
+    font-size: 27px;
+    font-weight: 600;
+    color: var(--colorGray-950);
+  }
+
+  & .group-actions {
+    display: grid;
+    justify-items: flex-end;
+    justify-content: flex-end;
+    grid-template-columns: auto;
+    gap: 23px;
+  }
+}

@@ -4,6 +4,7 @@
     <thead>
       <tr>
         <th>Code</th>
+        <th>Name</th>
         <th>Email</th>
         <th>Criado em</th>
       </tr>
@@ -12,6 +13,7 @@
       <% @users.each do |user| %>
         <tr>
         <td><%= user.code %></td>
+        <td><%= user.profile&.first_name || 'Nome não disponível' %></td>
         <td><%= user.email %></td>
         <td><%= user.created_at %></td>     
         </tr>

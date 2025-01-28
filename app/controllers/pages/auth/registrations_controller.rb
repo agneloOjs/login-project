@@ -3,6 +3,7 @@ module Pages
     class RegistrationsController < Pages::Auth::BaseController
       def new
         @user = User.new
+        @user.build_profile
       end
 
       # Cria um novo usuário
@@ -24,7 +25,7 @@ module Pages
 
       # Permite apenas os parâmetros necessários para criar um novo usuário
       def user_params
-        params.require(:registrations).permit(:email, :password)
+        params.require(:user).permit(:email, :password, profile_attributes: [ :first_name ])
       end
     end
   end

@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   has_one :profile
 
+  accepts_nested_attributes_for :profile, allow_destroy: true
+
   has_secure_password
   before_validation :generate_unique_code, on: :create
 

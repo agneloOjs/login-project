@@ -12,7 +12,6 @@ class CreateProfiles < ActiveRecord::Migration[8.0]
 
       t.timestamps
 
-      # Define a referência explicitamente como uuid
       t.references :user, null: false, foreign_key: true, type: :uuid
     end
   end

@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 module Pages
   module Auth
     class RegistrationsController < Pages::Auth::BaseController
+      skip_before_action :authenticate_request, only: [ :register ]
+
       def new
         @user = User.new
         @user.build_profile

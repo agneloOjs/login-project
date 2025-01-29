@@ -1,32 +1,34 @@
-# app/controllers/api/v1/auth_controller.rb
+# frozen_string_literal: true
+
 module Api
   module V1
     class AuthController < Api::V1::BaseController
-      skip_before_action :authenticate_user!, only: [ :login, :register ]
-
       def new
         @user = User.new
         @user.build_profile
       end
 
-      # POST /api/v1/auth/login
+      # Login
       def login
-        user = User.find_by(email: params[:user][:email])
-
-        if user && user.authenticate(params[:user][:password])
-          if user.active? && !user.blocked? && !user.deleted?
-            token = generate_token(user.id)
-            flash[:notice] = "Login realizado com sucesso."
-            redirect_to root_path
-          else
-            flash[:alert] = "Sua conta está inativa ou bloqueada."
-            redirect_to pages_auth_session_path
-          end
+        user = User.find_by(email: params[:email])
+        if user&.authenticate(params[:password])
+          token = generate_token(user)
+          render json: { token: token }, status: :ok
         else
-          flash[:alert] = "Email ou senha inválidos."
-          redirect_to pages_auth_session_path
+          render json: { error: "Invalid email or password" }, status: :unauthorized
         end
       end
+
+      # Logout
+      def logout
+        if current_user
+          invalidate_token(current_token)
+          render json: { message: "Logged out successfully" }, status: :ok
+        else
+          render json: { error: "Not authenticated" }, status: :unauthorized
+        end
+      end
+
 
       # POST /api/v1/auth/register
       def register
@@ -60,9 +62,26 @@ module Api
         params.require(:user).permit(:email, :password, profile_attributes: [ :first_name ])
       end
 
-      def generate_token(user_id)
-        JWT.encode({ user_id: user_id, exp: 24.hours.from_now.to_i },
-        Rails.application.credentials.secret_key_base)
+      # Gera um token JWT e armazena na allowlist
+      def generate_token(user)
+        token_jwt = SecureRandom.uuid
+        expires_at = 24.hours.from_now
+        token = JwtService.encode({ user_id: user.id, token_jwt: token_jwt }, expires_at)
+        AllowlistedToken.create!(token_jwt: token_jwt, user: user, expires_at: expires_at)
+        token
+      end
+
+      # Invalida um token (remove da allowlist)
+      def invalidate_token(token)
+        decoded = JwtService.decode(token)
+        if decoded
+          AllowlistedToken.where(token_jwt: decoded[:token_jwt]).destroy_all
+        end
+      end
+
+      # Obtém o token do header da requisição
+      def current_token
+        request.headers["Authorization"]&.split(" ")&.last
       end
     end
   end

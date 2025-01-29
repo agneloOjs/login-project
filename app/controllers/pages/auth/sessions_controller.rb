@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Pages
   module Auth
     class SessionsController < Pages::Auth::BaseController

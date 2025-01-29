@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     namespace :auth do
       get "session", to: "sessions#new"
       get "registration", to: "registrations#new"
-      get "reset-password", to: "passwords#reset", as: :reset_password
+      get "reset-password", to: "passwords#new", as: :reset_password
     end
 
     namespace :imob do

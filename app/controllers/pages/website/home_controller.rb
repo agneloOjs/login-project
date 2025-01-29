@@ -1,17 +1,14 @@
+# frozen_string_literal: true
+
 module Pages
   module Website
     class HomeController < ApplicationController
-      # skip_before_action :authenticate_user!, only: [ :index ]
+      skip_before_action :authenticate_request, only: [ :index ]
+
 
       layout "website/layout"
       def index
         @users = User.includes(:profile)
-        # Verifica se o usuário está logado
-        #  if user_signed_in?
-        #    redirect_to root_path
-        #  else
-        #    redirect_to new_user_session_path
-        #  end
       end
     end
   end

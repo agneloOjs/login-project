@@ -1,6 +1,6 @@
 <div class="group-form-auth">
   <!-- Form -->
-  <%= form_with url: pages_auth_sessions_path, method: :post, local: true, class: "login-form" do |form| %>
+  <%= form_with url: pages_auth_session_path, method: :post, local: true, class: "login-form" do |form| %>
     <div class="input-wrapper">
       <%= form.email_field :email, placeholder: "Email Address", class: "form-control" %>
     </div>

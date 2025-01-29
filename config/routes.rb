@@ -11,9 +11,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :auth_only, path: "" do
         post "register", to: "register#register_only"
+        post "login", to: "login#login_only"
+        post "logout", to: "logout#logout_only"
+        post "password", to: "password#password_reset"
       end
-        post "auth-login", to: "auth#login"
-        post "logout", to: "auth#destroy"
 
         resources :users, only: [ :index, :show, :create, :update, :destroy ]
       # resources :properties, only: [ :index, :show, :create, :update, :destroy ]
@@ -22,9 +23,9 @@ Rails.application.routes.draw do
 
   namespace :pages, path: "" do
     namespace :auth, path: "" do
-      get "criar-conta", to: "registrations#new"
-      get "session", to: "sessions#new"
-      get "reset-password", to: "passwords#new", as: :reset_password
+      get "cadastre-se", to: "registrations#new"
+      get "conecte-se", to: "sessions#new"
+      get "enviar-instrucoes", to: "passwords#new"
     end
 
     namespace :imob do

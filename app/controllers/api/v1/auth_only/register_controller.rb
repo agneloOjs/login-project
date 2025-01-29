@@ -19,9 +19,9 @@ module Api
           @user.active = true
 
           if @user.save
-            redirect_to pages_auth_session_path, notice: "Cadastro realizado com sucesso."
+            redirect_to pages_auth_conecte_se_path, notice: "Cadastro realizado com sucesso."
           else
-            redirect_to pages_auth_registration_path, alert: "Erro ao criar registro."
+            redirect_to pages_auth_cadastre_se_path, alert: "Erro ao criar registro."
           end
         end
 

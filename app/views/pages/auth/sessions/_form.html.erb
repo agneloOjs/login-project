@@ -1,6 +1,6 @@
 <div class="group-form-auth">
   <!-- Form -->
-  <%= form_with(model: @user, url: api_v1_auth_login_path, html: { method: :post }) do |form| %>
+  <%= form_with(model: @user, url: api_v1_auth_only_login_path, html: { method: :post }) do |form| %>
 
   <div class="input-wrapper">
     <%= form.email_field :email, placeholder: "Email Address", class: "form-control" %>

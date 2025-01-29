@@ -7,6 +7,11 @@ module Api
       rescue_from ActiveRecord::RecordNotFound, with: :not_found
       rescue_from ActionController::ParameterMissing, with: :bad_request
 
+      # Verifica se há um usuário autenticado
+      def user_signed_in?
+        !!current_user
+      end
+
       private
 
       # Método para autenticar o usuário com JWT

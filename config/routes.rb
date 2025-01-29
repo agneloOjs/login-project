@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
   namespace :api, path: "" do
     namespace :v1, path: "" do
-      post "auth/login", to: "auth#login"
-      post "auth/register", to: "auth#register"
-      delete "auth/logout", to: "auth#logout"
+      post "auth-login", to: "auth#login"
+      post "auth-register", to: "auth#register"
+      post "logout", to: "auth#destroy"
 
       resources :users, only: [ :index, :show, :create, :update, :destroy ]
       # resources :properties, only: [ :index, :show, :create, :update, :destroy ]
@@ -20,8 +20,8 @@ Rails.application.routes.draw do
 
   namespace :pages, path: "" do
     namespace :auth do
-      resources :sessions, only: [ :index, :new, :create, :destroy ]
-      resources :registrations, only: [ :new, :create ]
+      get "session", to: "sessions#new"
+      get "registration", to: "registrations#new"
       get "reset-password", to: "passwords#reset", as: :reset_password
     end
 

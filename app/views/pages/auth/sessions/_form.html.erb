@@ -1,20 +1,19 @@
 <div class="group-form-auth">
   <!-- Form -->
- <%#= form_with(url: pages_auth_sessions_path, html: { method: :post }) do |form| %>
- <%= form_with(scope: :session, url: pages_auth_sessions_path) do |form| %>
-   
-    <div class="input-wrapper">
-      <%= form.email_field :email, placeholder: "Email Address", class: "form-control" %>
-    </div>
+  <%= form_with(model: @user, url: api_v1_auth_login_path, html: { method: :post }) do |form| %>
 
-    <div class="input-wrapper">
-      <%= form.password_field :password, placeholder: "Password", class: "form-control" %>
-      <%= render "pages/auth/links/link_reset_password" %>
-    </div>
+  <div class="input-wrapper">
+    <%= form.email_field :email, placeholder: "Email Address", class: "form-control" %>
+  </div>
 
-    <!-- Button Submit -->
-    <div class="form-actions">
-      <%= form.submit "Log-in", class: "btn" %>
-    </div>
+  <div class="input-wrapper">
+    <%= form.password_field :password, placeholder: "Password", class: "form-control" %>
+    <%= render "pages/auth/links/link_reset_password" %>
+  </div>
+
+  <!-- Button Submit -->
+  <div class="form-actions">
+    <%= form.submit "Log-in", class: "btn" %>
+  </div>
   <% end %>
 </div>

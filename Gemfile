@@ -17,6 +17,7 @@ gem "view_component", "~> 3.21"
 gem "jwt", "~> 2.9", ">= 2.9.3"
 gem "bcrypt", "~> 3.1", ">= 3.1.20"
 gem "rack-cors", "~> 2.0", ">= 2.0.2"
+gem "activejob", "~> 8.0", ">= 8.0.1"
 
 
 gem "solid_cache"

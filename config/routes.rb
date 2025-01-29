@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :auth_only, path: "" do
         post "register", to: "register#register_only"
+        post "login", to: "login#login_only"
       end
-        post "auth-login", to: "auth#login"
         post "logout", to: "auth#destroy"
 
         resources :users, only: [ :index, :show, :create, :update, :destroy ]

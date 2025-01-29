@@ -1,1 +1,1 @@
-<%= link_to "Logout", pages_auth_sessions_path, method: :delete, class: "logout" %>
+<%= button_to 'Sair', api_v1_logout_path, method: :post, data: { confirm: 'Deseja realmente sair?' } %>

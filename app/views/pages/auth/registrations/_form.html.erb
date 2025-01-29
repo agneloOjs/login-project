@@ -1,30 +1,24 @@
 <div class="group-form-auth">
   <!-- Form -->
-  <%= form_with(scope: :registrations ,url: pages_auth_registrations_path, html: { method: :post }) do |form| %>
-   
-   <!--
-    <div class="input-wrapper">
-      <%= form.text_field :name, placeholder: "Fullname", class: "form-control" %>
-    </div>
-    -->
+  <%= form_with(model: @user, url: api_v1_auth_register_path, html: { method: :post }) do |form| %>
 
-    <div class="input-wrapper">
-      <%= form.email_field :email, placeholder: "Email Address", required: true %>
-    </div>
+  <%= form.fields_for :profile do |profile_fields| %>
+  <div class="input-wrapper">
+    <%= profile_fields.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+  </div>
+  <% end %>
 
-    <div class="input-wrapper">
-      <%= form.password_field :password, placeholder: "Password", required: true %>
-    </div>
+  <div class="input-wrapper">
+    <%= form.email_field :email, placeholder: "Email Address", required: true %>
+  </div>
 
-    <!--
-    <div class="input-wrapper">
-      <%= form.telephone_field :phone, placeholder: "Phone Number", class: "form-control" %>
-    </div>
-    -->
+  <div class="input-wrapper">
+    <%= form.password_field :password, placeholder: "Password", required: true %>
+  </div>
 
-    <!-- Button Submit -->
-    <div class="form-actions">
-      <%= form.submit "Sign-up", class: "btn" %>
-    </div>
+  <!-- Button Submit -->
+  <div class="form-actions">
+    <%= form.submit "Sign-up", class: "btn" %>
+  </div>
   <% end %>
 </div>

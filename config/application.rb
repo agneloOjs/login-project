@@ -23,11 +23,32 @@ module LeveCasaHub
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins "*" # Altere para o domínio do seu frontend em produção
+        resource "*",
+          headers: :any,
+          methods: [ :get, :post, :put, :patch, :delete, :options, :head ],
+          expose: [ "Authorization" ] # Expor o header Authorization para o frontend
+      end
+    end
+
+    # Agendar o job para rodar a cada 30 minutos
+    config.active_job.queue_adapter = :sidekiq
+    config.autoload_paths += %W[#{config.root}/app/jobs]
+    config.time_zone = "UTC"
+
+    config.after_initialize do
+      Rails.application.config.active_job.queue_adapter = :sidekiq
+      CleanupExpiredTokensJob.set(wait: 30.minutes).perform_later
+    end
+
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
     config.assets.enabled = true
+
 
     # Configuration for the application, engines, and railties goes here.
     #

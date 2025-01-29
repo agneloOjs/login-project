@@ -17,16 +17,16 @@ module Api
 
           # Verifica se o usuário existe
           if user.nil?
-            render json: { error: "User not found." }, status: :unauthorized
-            return
+            flash[:alert] = "Usuário não encontrado."
+            redirect_to new_session_path and return
           end
 
           # Verifica se a senha está correta
           if user.authenticate(params[:user][:password])
             # Verifica se o usuário já tem o limite de tokens
             if user.allowlisted_tokens.where(revoked: false).where("expires_at > ?", Time.current).count >= 3
-              render json: { error: "User already has the maximum allowed number of active tokens." }, status: :unauthorized
-              return
+              flash[:alert] = "Usuário já possui o número máximo de tokens ativos."
+              redirect_to new_session_path and return
             end
 
             # Gera o token JWT
@@ -36,12 +36,18 @@ module Api
             # Cria o token na tabela de tokens permitidos
             AllowlistedToken.create!(token_jwt: token, expires_at: 24.hours.from_now, user: user)
 
-            # Retorna o token para o cliente
-            render json: { token: token }, status: :ok
+            # Define a sessão do usuário
+            session[:user_id] = user.id
+            flash[:notice] = "Login realizado com sucesso."
+
+            # Redireciona para a página principal
+            redirect_to root_path and return
           else
-            render json: { error: "Invalid email or password." }, status: :unauthorized
+            flash[:alert] = "E-mail ou senha inválidos."
+            redirect_to new_session_path and return
           end
         end
+
 
         private
 

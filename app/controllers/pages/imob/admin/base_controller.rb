@@ -4,6 +4,8 @@ module Pages
   module Imob
     module Admin
       class BaseController < ApplicationController
+        before_action :authenticate_user!
+        
         layout "imob/admin/layout"
       end
     end

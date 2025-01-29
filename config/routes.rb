@@ -7,21 +7,23 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  namespace :api, path: "" do
-    namespace :v1, path: "" do
-      post "auth-login", to: "auth#login"
-      post "auth-register", to: "auth#register"
-      post "logout", to: "auth#destroy"
+  namespace :api do
+    namespace :v1 do
+      namespace :auth_only, path: "" do
+        post "register", to: "register#register_only"
+      end
+        post "auth-login", to: "auth#login"
+        post "logout", to: "auth#destroy"
 
-      resources :users, only: [ :index, :show, :create, :update, :destroy ]
+        resources :users, only: [ :index, :show, :create, :update, :destroy ]
       # resources :properties, only: [ :index, :show, :create, :update, :destroy ]
     end
   end
 
   namespace :pages, path: "" do
-    namespace :auth do
+    namespace :auth, path: "" do
+      get "criar-conta", to: "registrations#new"
       get "session", to: "sessions#new"
-      get "registration", to: "registrations#new"
       get "reset-password", to: "passwords#new", as: :reset_password
     end
 

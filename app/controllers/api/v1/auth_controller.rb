@@ -3,6 +3,8 @@
 module Api
   module V1
     class AuthController < Api::V1::BaseController
+      skip_before_action :authenticate_request, only: [ :register, :login ]
+
       def new
         @user = User.new
         @user.build_profile
@@ -10,12 +12,33 @@ module Api
 
       # Login
       def login
-        user = User.find_by(email: params[:email])
-        if user&.authenticate(params[:password])
-          token = generate_token(user)
+        user = User.find_by(email: params[:user][:email])
+
+        # Verifica se o usuário existe
+        if user.nil?
+          render json: { error: "User not found." }, status: :unauthorized
+          return
+        end
+
+        # Verifica se a senha está correta
+        if user.authenticate(params[:user][:password])
+          # Verifica se o usuário já tem o limite de tokens
+          if user.allowlisted_tokens.where(revoked: false).where("expires_at > ?", Time.current).count >= 3
+            render json: { error: "User already has the maximum allowed number of active tokens." }, status: :unauthorized
+            return
+          end
+
+          # Gera o token JWT
+          payload = { user_id: user.id }
+          token = JwtService.encode(payload)
+
+          # Cria o token na tabela de tokens permitidos
+          AllowlistedToken.create!(token_jwt: token, expires_at: 24.hours.from_now, user: user)
+
+          # Retorna o token para o cliente
           render json: { token: token }, status: :ok
         else
-          render json: { error: "Invalid email or password" }, status: :unauthorized
+          render json: { error: "Invalid email or password." }, status: :unauthorized
         end
       end
 
@@ -29,41 +52,16 @@ module Api
         end
       end
 
-
-      # POST /api/v1/auth/register
-      def register
-        @user = User.new(register_params)
-        @user.blocked = false
-        @user.deleted = false
-        @user.active = true
-
-        if @user.save
-          token = generate_token(@user.id)
-            # render json: { token: token, user: @user.as_json(only: [ :id, :email ]) }, status: :created
-            redirect_to pages_auth_session_path, notice: "Cadastro realizado com sucesso. Token gerado: #{token}"
-        else
-          Rails.logger.error "Erro ao criar usuário: #{@user.errors.full_messages}"
-          render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
-        end
-      end
-
-      def destroy
-        # Limpa todos os dados da sessão relacionados ao usuário
-        session.delete(:user_id)    # Caso tenha um ID de usuário na sessão
-        session.delete(:user_email) # Caso tenha o email ou outras informações na sessão
-
-        flash[:notice] = "Você saiu com sucesso."
-        redirect_to pages_auth_session_path # Redireciona para a página inicial
-      end
-
       private
 
       def register_params
         params.require(:user).permit(:email, :password, profile_attributes: [ :first_name ])
       end
 
-      # Gera um token JWT e armazena na allowlist
-      def generate_token(user)
+        # Gera um token JWT e armazena na allowlist
+        def generate_token(user)
+        raise "Expected User object, got #{user.class}" unless user.is_a?(User)
+
         token_jwt = SecureRandom.uuid
         expires_at = 24.hours.from_now
         token = JwtService.encode({ user_id: user.id, token_jwt: token_jwt }, expires_at)

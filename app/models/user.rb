@@ -2,8 +2,10 @@
 
 class User < ApplicationRecord
   has_one :profile
+  has_many :allowlisted_tokens
 
   accepts_nested_attributes_for :profile, allow_destroy: true
+  accepts_nested_attributes_for :allowlisted_tokens, allow_destroy: true
 
   has_secure_password
   before_validation :generate_unique_code, on: :create

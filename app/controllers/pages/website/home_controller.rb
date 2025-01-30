@@ -3,8 +3,7 @@
 module Pages
   module Website
     class HomeController < ApplicationController
-      skip_before_action :authenticate_request, only: [ :index ]
-
+      skip_before_action :authenticate_user!
 
       layout "website/layout"
       def index

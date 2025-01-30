@@ -3,6 +3,7 @@ class AllowlistedToken < ApplicationRecord
 
   # Validações
   validates :token_jwt, presence: true, uniqueness: true
+  validates :jti, presence: true, uniqueness: true
   validates :expires_at, presence: true
   validates :revoked, inclusion: { in: [ true, false ] }
 

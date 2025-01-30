@@ -17,6 +17,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_29_005032) do
 
   create_table "allowlisted_tokens", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "token_jwt", null: false
+    t.string "jti", null: false
     t.datetime "expires_at", null: false
     t.boolean "revoked", default: false
     t.datetime "created_at", null: false

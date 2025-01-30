@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   namespace :pages, path: "" do
     namespace :auth, path: "" do
       get "cadastre-se", to: "registrations#new"
-      get "conecte-se", to: "sessions#new"
+      get "conecte-se", to: "sessions#new", only: [ :new ]
       get "enviar-instrucoes", to: "passwords#new"
     end
 

@@ -3,7 +3,7 @@
 module Pages
   module Auth
     class BaseController < ApplicationController
-      skip_before_action :authenticate_request, only: [ :new ]
+      skip_before_action :authenticate_user!
 
       layout "auth/layout"
 

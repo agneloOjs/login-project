@@ -7,6 +7,7 @@ class CreateAllowlistedTokens < ActiveRecord::Migration[8.0]
 
     create_table :allowlisted_tokens, id: :uuid do |t|
       t.string :token_jwt, null: false
+      t.string :jti, null: false
       t.datetime :expires_at, null: false
       t.boolean :revoked, default: false
 

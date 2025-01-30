@@ -4,75 +4,32 @@ module Api
   module V1
     module AuthOnly
       class LoginController < Api::V1::BaseController
-        skip_before_action :authenticate_request, only: [ :login_only ]
-
-        def new
-          @user = User.new
-          @user.build_profile
-        end
-
-        # Login
         def login_only
-          user = User.find_by(email: params[:user][:email])
+        user = User.find_by(email: params[:email])
+        if user&.authenticate(params[:password])
+          # Gera o token JWT
+          token = JwtService.encode({ user_id: user.id })
 
-          # Verifica se o usuário existe
-          if user.nil?
-            flash[:alert] = "Usuário não encontrado."
-            redirect_to new_session_path and return
-          end
+          # Armazena o token no banco de dados
+          AllowlistedToken.create!(
+            token_jwt: token,
+            user: user,
+            expires_at: 24.hours.from_now,  # Define a expiração do token
+            revoked: false
+          )
 
-          # Verifica se a senha está correta
-          if user.authenticate(params[:user][:password])
-            # Verifica se o usuário já tem o limite de tokens
-            if user.allowlisted_tokens.where(revoked: false).where("expires_at > ?", Time.current).count >= 3
-              flash[:alert] = "Usuário já possui o número máximo de tokens ativos."
-              redirect_to new_session_path and return
-            end
+          # Armazena o token em um cookie seguro
+          cookies[:auth_token] = {
+            value: token,
+            expires: 24.hours.from_now,
+            httponly: true,  # Impede acesso via JavaScript
+            secure: Rails.env.production?  # Usa HTTPS em produção
+          }
 
-            # Gera o token JWT
-            payload = { user_id: user.id }
-            token = JwtService.encode(payload)
-
-            # Cria o token na tabela de tokens permitidos
-            AllowlistedToken.create!(token_jwt: token, expires_at: 24.hours.from_now, user: user)
-
-            # Define a sessão do usuário
-            session[:user_id] = user.id
-            flash[:notice] = "Login realizado com sucesso."
-
-            # Redireciona para a página principal
-            redirect_to root_path and return
-          else
-            flash[:alert] = "E-mail ou senha inválidos."
-            redirect_to new_session_path and return
-          end
-        end
-
-
-        private
-
-          # Gera um token JWT e armazena na allowlist
-          def generate_token(user)
-          raise "Expected User object, got #{user.class}" unless user.is_a?(User)
-
-          token_jwt = SecureRandom.uuid
-          expires_at = 24.hours.from_now
-          token = JwtService.encode({ user_id: user.id, token_jwt: token_jwt }, expires_at)
-          AllowlistedToken.create!(token_jwt: token_jwt, user: user, expires_at: expires_at)
-          token
-        end
-
-        # Invalida um token (remove da allowlist)
-        def invalidate_token(token)
-          decoded = JwtService.decode(token)
-          if decoded
-            AllowlistedToken.where(token_jwt: decoded[:token_jwt]).destroy_all
-          end
-        end
-
-        # Obtém o token do header da requisição
-        def current_token
-          request.headers["Authorization"]&.split(" ")&.last
+          redirect_to root_path, notice: "Login realizado com sucesso."
+        else
+          flash[:alert] = "E-mail ou senha inválidos."
+          redirect_to login_path
         end
       end
     end

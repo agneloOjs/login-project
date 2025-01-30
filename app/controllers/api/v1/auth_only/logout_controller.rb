@@ -4,7 +4,7 @@ module Api
   module V1
     module AuthOnly
       class LogoutController < Api::V1::BaseController
-        skip_before_action :authenticate_request, only: [ :logout_only ]
+        skip_before_action :authenticate_user!
 
         def logout_only
           if current_user
@@ -16,8 +16,22 @@ module Api
           else
             redirect_to root_path, alert: "Not authenticated"
           end
+
+          token = cookies[:auth_token]
+          if token
+            # Remove o token do banco de dados
+            AllowlistedToken.where(token_jwt: token).destroy_all
+
+            # Remove o cookie
+            cookies.delete(:auth_token)
+          end
+          redirect_to root_path, notice: "Logout realizado com sucesso."
         end
       end
     end
+  end
+end
+class LogoutController < ApplicationController
+  def destroy
   end
 end

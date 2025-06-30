@@ -18,7 +18,7 @@ gem "jwt", "~> 2.9", ">= 2.9.3"
 gem "bcrypt", "~> 3.1", ">= 3.1.20"
 gem "rack-cors", "~> 2.0", ">= 2.0.2"
 gem "activejob", "~> 8.0", ">= 8.0.1"
-gem "sidekiq", "~> 7.3", ">= 7.3.8"
+gem "sidekiq", "~> 8.0"
 
 
 gem "solid_cache"
